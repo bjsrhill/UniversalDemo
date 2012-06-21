@@ -3,7 +3,7 @@
 //  UniversalDemo
 //
 //  Created by Beverly S Hill on 8/29/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Beverly S Hill. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,7 +12,8 @@
 
 int main(int argc, char *argv[])
 {
-    @autoreleasepool {
+    @autoreleasepool 
+    {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

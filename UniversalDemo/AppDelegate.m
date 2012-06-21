@@ -1,92 +1,108 @@
-//
-//  AppDelegate.m
-//  UniversalDemo
-//
-//  Created by Beverly S Hill on 8/29/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
+/*
+ AppDelegate.m
+ UniversalDemo
+
+ Created by Beverly S Hill on 8/29/11.
+ Copyright (c) 2012 Beverly S Hill. All rights reserved.
+ 
+ This work is being made available under a Creative Commons
+ Attribution license: http://creativecommons.org/licenses/by/3.0/
+ 
+ You are free to use this work and any derivatives of this work in
+ personal and/or commercial products and projects as long as the above
+ copyright is maintained and the original author is attributed.
+ 
+ The is experimental software and is provided "as is", without warranty of 
+ any kind, express or implied, including, but not limited to, the warranties of
+ merchantability, fitness for a particular purpose or non-infringement.
+ In no event shall the authors be held liable for any claim, damages or
+ other liability arising from the use of the software.
+ */
+
 
 #import "AppDelegate.h"
-
 #import "MasterViewController.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize managedObjectContext = __managedObjectContext;
-@synthesize managedObjectModel = __managedObjectModel;
-@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize window = window_;
+@synthesize managedObjectContext = managedObjectContext_;
+@synthesize managedObjectModel = managedObjectModel_;
+@synthesize persistentStoreCoordinator = persistentStoreCoordinator_;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+/**
+ Tells the delegate when the application has launched and may have additional 
+ launch options to handle
+ */
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
+(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) 
+    {
+        UISplitViewController *splitViewController = 
+        (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = 
+        [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = 
+        (id)navigationController.topViewController;
         
-        UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-        MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
+        UINavigationController *masterNavigationController = 
+        [splitViewController.viewControllers objectAtIndex:0];
+        MasterViewController *controller = 
+        (MasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
+    } 
+    else 
+    {
+        UINavigationController *navigationController = 
+        (UINavigationController *)self.window.rootViewController;
+        MasterViewController *controller = 
+        (MasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
     return YES;
 }
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    /*
-     Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-     Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-     */
-}
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     */
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
-}
-
+/**
+ Tells the delegate when the application is about to terminate
+ */
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
+    // Saves changes in the application's managed object context before the 
+    // application terminates.
     [self saveContext];
 }
 
+/**
+ Attempts to commit unsaved changes in the managed object context to the 
+ persistent store
+ */
 - (void)saveContext
 {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil)
     {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+        if ([managedObjectContext hasChanges] && 
+            ![managedObjectContext save:&error])
         {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+            
+            if ([managedObjectContext hasChanges] && 
+                ![managedObjectContext save:&error])
+            {
+                // Handle error.
+                UIAlertView *alertView = [[UIAlertView alloc] 
+                                          initWithTitle:
+                                          NSLocalizedString(@"errorCommitingChanges",
+                                                            @"errorCommitingChanges")  
+                                          message:nil delegate:nil 
+                                          cancelButtonTitle:
+                                          NSLocalizedString(@"ok",@"ok") 
+                                          otherButtonTitles:nil];
+                [alertView show];
+            } 
+
         } 
     }
 }
@@ -95,22 +111,23 @@
 
 /**
  Returns the managed object context for the application.
- If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ If the context doesn't already exist, it is created and bound to the persistent
+ store coordinator for the application.
  */
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if (__managedObjectContext != nil)
+    if (managedObjectContext_ != nil)
     {
-        return __managedObjectContext;
+        return managedObjectContext_;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil)
     {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        managedObjectContext_ = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext_ setPersistentStoreCoordinator:coordinator];
     }
-    return __managedObjectContext;
+    return managedObjectContext_;
 }
 
 /**
@@ -119,60 +136,55 @@
  */
 - (NSManagedObjectModel *)managedObjectModel
 {
-    if (__managedObjectModel != nil)
+    if (managedObjectModel_ != nil)
     {
-        return __managedObjectModel;
+        return managedObjectModel_;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"UniversalDemo" withExtension:@"momd"];
-    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return __managedObjectModel;
+    NSURL *modelURL = [[NSBundle mainBundle] 
+                       URLForResource:@"UniversalDemo" withExtension:@"momd"];
+    managedObjectModel_ = [[NSManagedObjectModel alloc] 
+                            initWithContentsOfURL:modelURL];
+    return managedObjectModel_;
 }
 
 /**
  Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
+ If the coordinator doesn't already exist, it is created and the 
+ application's store added to it.
  */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (__persistentStoreCoordinator != nil)
+    if (persistentStoreCoordinator_ != nil)
     {
-        return __persistentStoreCoordinator;
+        return persistentStoreCoordinator_;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"UniversalDemo.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] 
+                       URLByAppendingPathComponent:@"UniversalDemo.sqlite"];
     
+    //* Performing automatic lightweight migration by passing the following 
+    // dictionary as the options parameter: 
+    [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],
+     NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], 
+     NSInferMappingModelAutomaticallyOption, nil];
     NSError *error = nil;
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
-    {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter: 
-         [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] 
+                                    initWithManagedObjectModel:
+                                    [self managedObjectModel]];
+    if (![persistentStoreCoordinator_ addPersistentStoreWithType:
+          NSSQLiteStoreType configuration:nil URL:
+          storeURL options:nil error:&error])
+    {         
+        UIAlertView *alertView = [[UIAlertView alloc] 
+                                  initWithTitle:
+                                  NSLocalizedString(@"persistentError",
+                                                    @"persistentError")  
+                                  message:nil delegate:nil cancelButtonTitle:
+                                  NSLocalizedString(@"ok",@"ok") 
+                                  otherButtonTitles:nil];
+		[alertView show];
     }    
-    
-    return __persistentStoreCoordinator;
+    return persistentStoreCoordinator_;
 }
 
 #pragma mark - Application's Documents directory
@@ -182,7 +194,8 @@
  */
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory 
+                                                   inDomains:NSUserDomainMask] 
+            lastObject];
 }
-
 @end
