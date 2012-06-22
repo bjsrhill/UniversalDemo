@@ -12,11 +12,11 @@
 		CC92FAB214395FE4004B0914 /* ReferenceUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC92FAB114395FE4004B0914 /* ReferenceUrl.m */; };
 		CC9FDEFB1475F59700775995 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9FDEFA1475F59700775995 /* icon-back.png */; };
 		CC9FDEFD147601AD00775995 /* icon-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9FDEFC147601AD00775995 /* icon-forward.png */; };
-		CCA02D9D15940CFA0002EC32 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA02D9515940CFA0002EC32 /* libOCMock.a */; };
 		CCA08A4614C23F5F00AE8C63 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A4514C23F5F00AE8C63 /* Default-Portrait~ipad.png */; };
 		CCA08A4814C23F7200AE8C63 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A4714C23F7200AE8C63 /* Default-Landscape~ipad.png */; };
 		CCA08A4A14C2416500AE8C63 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A4914C2416500AE8C63 /* Default@2x.png */; };
 		CCA08A5514C24B9A00AE8C63 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A5414C24B9A00AE8C63 /* Default.png */; };
+		CCA1BC3D15947EB500A89ECE /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA02D9515940CFA0002EC32 /* libOCMock.a */; };
 		CCA84FA01438F97100F91407 /* UrlEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA84F9F1438F97000F91407 /* UrlEntryViewController.m */; };
 		CCC087DE1443E18500D40E46 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC087DD1443E18500D40E46 /* MainStoryboard_iPad.storyboard */; };
 		CCDFC85014C20D83009C22AC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDFC84D14C20D83009C22AC /* Icon.png */; };
@@ -104,7 +104,6 @@
 				CCE7A81D140C720800D7B4AD /* UIKit.framework in Frameworks */,
 				CCE7A81F140C720900D7B4AD /* Foundation.framework in Frameworks */,
 				CCE7A821140C720900D7B4AD /* CoreData.framework in Frameworks */,
-				CCA02D9D15940CFA0002EC32 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA1BC3D15947EB500A89ECE /* libOCMock.a in Frameworks */,
 				CC83D536149458560020A2F1 /* SenTestingKit.framework in Frameworks */,
 				CCE7A845140C720900D7B4AD /* UIKit.framework in Frameworks */,
 				CCE7A846140C720900D7B4AD /* Foundation.framework in Frameworks */,
