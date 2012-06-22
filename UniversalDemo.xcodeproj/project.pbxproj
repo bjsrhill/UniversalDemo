@@ -149,8 +149,7 @@
 				CCA02D9515940CFA0002EC32 /* libOCMock.a */,
 				CCA02D9615940CFA0002EC32 /* OCMock */,
 			);
-			name = Libraries;
-			path = UniversalDemoTests/Libraries;
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		CCA02D9615940CFA0002EC32 /* OCMock */ = {
@@ -169,7 +168,6 @@
 		CCE7A80D140C720700D7B4AD = {
 			isa = PBXGroup;
 			children = (
-				CCA02D9415940CFA0002EC32 /* Libraries */,
 				CC9FDEF81475F56400775995 /* Images */,
 				CC42697E140FC4D3001991F5 /* Resources */,
 				CCE7A822140C720900D7B4AD /* UniversalDemo */,
@@ -238,6 +236,7 @@
 		CCE7A84A140C720900D7B4AD /* UniversalDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				CCA02D9415940CFA0002EC32 /* Libraries */,
 				CCE7A850140C720A00D7B4AD /* UniversalDemoTests.h */,
 				CCE7A851140C720A00D7B4AD /* UniversalDemoTests.m */,
 			);
