@@ -10,9 +10,9 @@
 		CC426980140FC4F2001991F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC42697F140FC4F2001991F5 /* Localizable.strings */; };
 		CC83D536149458560020A2F1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC83D535149458560020A2F1 /* SenTestingKit.framework */; };
 		CC92FAB214395FE4004B0914 /* ReferenceUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC92FAB114395FE4004B0914 /* ReferenceUrl.m */; };
-		CC992BAB1495ADB600ED84B7 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC992BAA1495ADB600ED84B7 /* libOCMock.a */; };
 		CC9FDEFB1475F59700775995 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9FDEFA1475F59700775995 /* icon-back.png */; };
 		CC9FDEFD147601AD00775995 /* icon-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9FDEFC147601AD00775995 /* icon-forward.png */; };
+		CCA02D9D15940CFA0002EC32 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA02D9515940CFA0002EC32 /* libOCMock.a */; };
 		CCA08A4614C23F5F00AE8C63 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A4514C23F5F00AE8C63 /* Default-Portrait~ipad.png */; };
 		CCA08A4814C23F7200AE8C63 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A4714C23F7200AE8C63 /* Default-Landscape~ipad.png */; };
 		CCA08A4A14C2416500AE8C63 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA08A4914C2416500AE8C63 /* Default@2x.png */; };
@@ -54,9 +54,15 @@
 		CC83D535149458560020A2F1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		CC92FAB014395FE3004B0914 /* ReferenceUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReferenceUrl.h; path = ../ReferenceUrl.h; sourceTree = "<group>"; };
 		CC92FAB114395FE4004B0914 /* ReferenceUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReferenceUrl.m; path = ../ReferenceUrl.m; sourceTree = "<group>"; };
-		CC992BAA1495ADB600ED84B7 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		CC9FDEFA1475F59700775995 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
 		CC9FDEFC147601AD00775995 /* icon-forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-forward.png"; sourceTree = "<group>"; };
+		CCA02D9515940CFA0002EC32 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		CCA02D9715940CFA0002EC32 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		CCA02D9815940CFA0002EC32 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		CCA02D9915940CFA0002EC32 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		CCA02D9A15940CFA0002EC32 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		CCA02D9B15940CFA0002EC32 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		CCA02D9C15940CFA0002EC32 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		CCA08A4514C23F5F00AE8C63 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		CCA08A4714C23F7200AE8C63 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		CCA08A4914C2416500AE8C63 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -64,12 +70,6 @@
 		CCA84F9E1438F97000F91407 /* UrlEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlEntryViewController.h; sourceTree = "<group>"; };
 		CCA84F9F1438F97000F91407 /* UrlEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlEntryViewController.m; sourceTree = "<group>"; };
 		CCC087DD1443E18500D40E46 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		CCCB1D931495AE4200B6AC4C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		CCCB1D941495AE4200B6AC4C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
-		CCCB1D951495AE4200B6AC4C /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
-		CCCB1D961495AE4200B6AC4C /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
-		CCCB1D971495AE4200B6AC4C /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
-		CCCB1D981495AE4200B6AC4C /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 		CCDFC84D14C20D83009C22AC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		CCDFC84E14C20D83009C22AC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		CCDFC84F14C20D83009C22AC /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon~ipad.png"; path = "../Icon~ipad.png"; sourceTree = "<group>"; };
@@ -104,6 +104,7 @@
 				CCE7A81D140C720800D7B4AD /* UIKit.framework in Frameworks */,
 				CCE7A81F140C720900D7B4AD /* Foundation.framework in Frameworks */,
 				CCE7A821140C720900D7B4AD /* CoreData.framework in Frameworks */,
+				CCA02D9D15940CFA0002EC32 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +116,6 @@
 				CCE7A845140C720900D7B4AD /* UIKit.framework in Frameworks */,
 				CCE7A846140C720900D7B4AD /* Foundation.framework in Frameworks */,
 				CCE7A847140C720900D7B4AD /* CoreData.framework in Frameworks */,
-				CC992BAB1495ADB600ED84B7 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,16 +134,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		CC992BA91495AD1000ED84B7 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				CCCB1D921495AE4200B6AC4C /* OCMock */,
-				CC992BAA1495ADB600ED84B7 /* libOCMock.a */,
-			);
-			name = Libraries;
-			path = UniversalDemoTests/Libraries;
-			sourceTree = "<group>";
-		};
 		CC9FDEF81475F56400775995 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,15 +143,25 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		CCCB1D921495AE4200B6AC4C /* OCMock */ = {
+		CCA02D9415940CFA0002EC32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				CCCB1D931495AE4200B6AC4C /* NSNotificationCenter+OCMAdditions.h */,
-				CCCB1D941495AE4200B6AC4C /* OCMArg.h */,
-				CCCB1D951495AE4200B6AC4C /* OCMConstraint.h */,
-				CCCB1D961495AE4200B6AC4C /* OCMock.h */,
-				CCCB1D971495AE4200B6AC4C /* OCMockObject.h */,
-				CCCB1D981495AE4200B6AC4C /* OCMockRecorder.h */,
+				CCA02D9515940CFA0002EC32 /* libOCMock.a */,
+				CCA02D9615940CFA0002EC32 /* OCMock */,
+			);
+			name = Libraries;
+			path = UniversalDemoTests/Libraries;
+			sourceTree = "<group>";
+		};
+		CCA02D9615940CFA0002EC32 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				CCA02D9715940CFA0002EC32 /* NSNotificationCenter+OCMAdditions.h */,
+				CCA02D9815940CFA0002EC32 /* OCMArg.h */,
+				CCA02D9915940CFA0002EC32 /* OCMConstraint.h */,
+				CCA02D9A15940CFA0002EC32 /* OCMock.h */,
+				CCA02D9B15940CFA0002EC32 /* OCMockObject.h */,
+				CCA02D9C15940CFA0002EC32 /* OCMockRecorder.h */,
 			);
 			path = OCMock;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 		CCE7A80D140C720700D7B4AD = {
 			isa = PBXGroup;
 			children = (
-				CC992BA91495AD1000ED84B7 /* Libraries */,
+				CCA02D9415940CFA0002EC32 /* Libraries */,
 				CC9FDEF81475F56400775995 /* Images */,
 				CC42697E140FC4D3001991F5 /* Resources */,
 				CCE7A822140C720900D7B4AD /* UniversalDemo */,
@@ -474,6 +474,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/UniversalDemoTests/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -490,6 +491,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/UniversalDemoTests/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
