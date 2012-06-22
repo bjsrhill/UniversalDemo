@@ -1,4 +1,4 @@
 UniversalDemo
 =============
 
-Sample Universal iOS application that includes Core Data, unit tests, and the JavaScript for UI Automation
+A sample Universal iOS application featuring Core Data, unit tests, and JavaScript for UI Automation testing
